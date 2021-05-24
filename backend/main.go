@@ -2,9 +2,9 @@
 package main
 
 import (
+	p "backend/src"
+	db "backend/src/db"
 	"os"
-	p "project/src"
-	db "project/src/db"
 )
 
 func main() {

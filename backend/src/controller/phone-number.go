@@ -1,12 +1,12 @@
 package controller
 
 import (
+	"backend/src/db"
+	h "backend/src/handler"
+	m "backend/src/model"
 	"database/sql"
 	"encoding/json"
 	"net/http"
-	"project/src/db"
-	h "project/src/handler"
-	m "project/src/model"
 	"regexp"
 	"strconv"
 	"strings"

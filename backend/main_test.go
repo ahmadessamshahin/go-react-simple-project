@@ -1,9 +1,9 @@
 package main
 
 import (
+	p "backend/src"
+	dbTest "backend/src/test"
 	"os"
-	p "project/src"
-	dbTest "project/src/test"
 	"testing"
 )
 

@@ -1,10 +1,10 @@
 package src
 
 import (
+	c "backend/src/controller"
 	"fmt"
 	"log"
 	"net/http"
-	c "project/src/controller"
 
 	_ "github.com/lib/pq"
 

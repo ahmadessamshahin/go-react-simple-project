@@ -1,6 +1,6 @@
 package test
 
-import "project/src/db"
+import "backend/src/db"
 
 var database = db.GetDBInstance()
 
