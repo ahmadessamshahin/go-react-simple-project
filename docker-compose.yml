@@ -1,0 +1,40 @@
+version: '3'
+
+services: 
+  backend:
+    container_name: backend
+    restart: always
+    build: .
+    depends_on:
+      - db
+    ports:
+      - 3000:3000
+    environment: 
+      - APP_DB_USERNAME=postgres
+      - APP_DB_PASSWORD=123456
+      - APP_DB_NAME=project
+      - APP_DB_PORT=5432
+      - APP_DB_HOST=db
+      - APP_Port=3000
+  db:
+    container_name: db
+    image: postgres
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=123456
+      - POSTGRES_DB=project
+    volumes:
+      - postgres:/data/postgres
+      - ./init.sh:/docker-entrypoint/init.sh
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
+      
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+
+volumes:
+  postgres:
