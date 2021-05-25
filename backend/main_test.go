@@ -15,7 +15,3 @@ func TestMain(m *testing.M) {
 	dbTest.ClearTable()
 	os.Exit(code)
 }
-
-func TestCustomerApis(t *testing.T) {
-	dbTest.TestEmptyTable(t)
-}
