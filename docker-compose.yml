@@ -3,21 +3,20 @@ version: '3'
 services: 
   backend:
     container_name: backend
-    restart: always
     build: 
       context: ./backend
       dockerfile: Dockerfile
     depends_on:
       - db
     ports:
-      - 3000:3000
+      - 4000:4000
     environment: 
       - APP_DB_USERNAME=postgres
       - APP_DB_PASSWORD=123456
       - APP_DB_NAME=project
       - APP_DB_PORT=5432
       - APP_DB_HOST=db
-      - APP_Port=3000
+      - APP_Port=4000
   db:
     container_name: db
     image: postgres
@@ -31,7 +30,19 @@ services:
     ports:
       - "5432:5432"
     restart: unless-stopped
-      
+  
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+    volumes:
+      - ./frontend/src:/code/src
+      - /code/node_modules
+    depends_on:
+      - backend
+
   adminer:
     image: adminer
     restart: always
